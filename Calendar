@@ -1,0 +1,88 @@
+package calendar;
+
+/*This programs creates a calendar using a user input of the year and the specific day of the year*/
+
+public class Calendar {
+
+    public static void main(String[] args) {
+        java.util.Scanner sc = new java.util.Scanner(System.in);
+        System.out.print("What is the year? ");
+        int x = sc.nextInt();
+        System.out.print("What day did the year start? (0 for Sunday and 6 for Saturday) ");
+	int day = sc.nextInt();
+
+		for (int m=1; m<=12; m++)                                        
+		{
+			String monthN="";                                       
+			int numD=0;                                             
+			switch (m)
+			{
+			case 1:
+				monthN="January ";
+				numD=31;
+				break;
+			case 2:
+				monthN="February ";
+				if ((x%4 == 0 && x%100 != 0) || x%400 == 0 )
+					numD=29;
+				else numD=28;
+				break;
+			case 3:
+				monthN="March ";
+				numD=31;
+				break;
+			case 4:
+				monthN="April ";
+				numD=30;
+				break;
+			case 5:
+				monthN="May ";
+				numD=31;
+				break;
+			case 6:
+				monthN="June ";
+				numD=30;
+				break;
+			case 7:
+				monthN="July ";
+				numD=31;
+				break;
+			case 8:
+				monthN="August ";
+				numD=31;
+				break;
+			case 9:
+				monthN="September ";
+				numD=30;
+				break;
+			case 10:
+				monthN="October ";
+				numD=31;
+				break;
+			case 11:
+				monthN="November ";
+				numD=30;
+				break;
+			case 12:
+				monthN="December ";
+				numD=31;
+				break;
+			}
+
+			System.out.println("\n             " + monthN + x);
+			System.out.println("---------------------------------------");
+			System.out.println("Sun | Mon | Tue | Wed | Thu | Fri | Sat");
+			for (int sp=1; sp<=day; sp++)
+					System.out.print("      ");
+			for (int p=1; p<=numD; p++){	
+				if (day%7==0 && day!=0)
+					System.out.println();
+				System.out.printf("%3d   ", p);
+				day+=1;
+			}
+			day%=7;
+			
+			System.out.println("\n");
+		}
+	} // end of main method
+} // end of class
